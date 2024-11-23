@@ -1,0 +1,16 @@
+/* Transición suave entre las imágenes */
+.img-true {
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  }
+  
+  /* Transición suave de opacidad entre imágenes */
+.transition-opacity {
+    transition: opacity 0.7s ease-in-out;
+  }
+  
+  /* Asegúrate de que las imágenes cubran bien el contenedor */
+  .img-true {
+    object-fit: cover;
+    object-position: center;
+  }
+  
