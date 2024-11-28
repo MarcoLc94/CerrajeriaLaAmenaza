@@ -1,16 +1,17 @@
 const GalleryComponent = () => {
-    const images = [
-      [
-        "/1140-key-fob-esp.jpg",
-        "/blog-640w.webp",
-        "/copia-de-llaves-de-coche-en-albacete-electrokey-03.jpg",
-      ],
-      [
-        "/llave-nissan-02.png",
-        "/llaves-auto.png",
-        "/llaves-con-chip-para-autos.png",
-      ],
-    ];
+  const images = [
+    [
+      "/foto8.jpeg",
+      "/foto9.jpeg",
+      "/foto10.jpeg",
+    ],
+    [
+      "/foto11.jpeg",
+      "/foto12.jpeg",
+      "/foto13.jpeg",
+    ],
+  ];
+  
   
     return (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">

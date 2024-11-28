@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+
+.text-custom {
+    color: #001969;
+    font-family: "Comfortaa", sans-serif;
+}
+
+.button-custom {
+    background-color: #001969;
+}
+
+.button-custom:hover {
+    background-color: #002bb9;
+    transform: scale(1.1);
+}

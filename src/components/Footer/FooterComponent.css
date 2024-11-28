@@ -1,8 +1,17 @@
 .footer-class {
-    display: flex;
-    background-color: #1a202c; /* Fondo oscuro */
-    color: #ffffff;
-    padding: 2rem 1rem;
-    margin-top: 2rem; /* Asegura espacio entre el footer y el contenido anterior */
-  }
-  
+  display: flex;
+  background-color:  transparent; /* Fondo oscuro */
+  color: #ffffff;
+  padding: 2rem 1rem;
+  margin-top: auto; /* Empuja el footer hacia el fondo */
+  height: auto; /* Asegura que se ajuste al contenido */
+}
+
+.icon-social {
+  transition: transform 0.2s ease;
+}
+
+.icon-social:hover{
+   transform: scale(1.1);
+   transition: transform 0.2s ease;
+}

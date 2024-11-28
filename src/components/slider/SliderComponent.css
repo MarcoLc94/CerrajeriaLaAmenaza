@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+
 /* Transición suave entre las imágenes */
 .img-true {
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
@@ -14,3 +17,6 @@
     object-position: center;
   }
   
+  .main-title {
+    font-family: "Comfortaa", sans-serif;
+  }

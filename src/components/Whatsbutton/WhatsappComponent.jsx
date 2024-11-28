@@ -1,3 +1,4 @@
+import "./WhatsappComponent.css"
 
 const WhatsAppButton = () => {
   return (
@@ -5,10 +6,10 @@ const WhatsAppButton = () => {
       href="https://wa.me/528126373570" // Reemplaza con tu número de WhatsApp
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-4 right-4 bg-white text-black rounded-full p-2 shadow-lg hover:bg-gray-300 transition"
+      className="custom-whats fixed bottom-4 right-4  rounded-full p-2 shadow-lg transition"
       aria-label="Contactar por WhatsApp"
     >
-    <box-icon name='whatsapp' type='logo' color='#0a0a0a' size="40px"></box-icon>
+    <img src="/whatsapp-logo-602.png" alt="" style={{width: "50px"}}/>
     </a>
   );
 };

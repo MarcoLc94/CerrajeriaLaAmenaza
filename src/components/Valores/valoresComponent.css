@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+
+.cover {
+    background:
+        url('/wallpaper-art.png'),
+        linear-gradient(to bottom, #001969, #000);
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    max-height: auto;
+}
+
+.title-custom {
+    font-family: "Edu AU VIC WA NT Arrows";
+}
+
+.custom-xd {
+    font-family: "Comfortaa", sans-serif;
+   font-size: 20px;
+}
+
+.custom-description {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 15px;
+}
+
+/* .icontext {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+  } */
+  
+  .main-item {
+    height: 800px;
+    background-color: transparent;
+  }
+
+  .section-custom {
+    height: 350px;
+  }
+
+  .custom-description {
+    font-family: "Comfortaa", sans-serif;
+  }
