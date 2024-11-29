@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./NavBar.css";
 import CustomItem from "../../Utils/CustomItem";
-import { NavLink } from "react-router-dom";
 
-const NavBar = () => {
+
+const NavBar = ({onCatalog, setOnCatalog}) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [icon, setIcon] = useState(true);
@@ -26,21 +26,29 @@ const NavBar = () => {
   };
 
   useEffect(() => {
+   setOnCatalog(false)
+  }, [])
+  
+
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+
   }, [scroll]);
 
   const titles = [
     { title: "Inicio", tag: "/home" },
     { title: "Nosotros", tag: "/aboutus" },
-    { title: "Servicios", tag: "/services" },
+    { title: "Cotizar", tag: "/services" },
+    { title: "Contacto", tag: "/contact" },
     { title: "Catalogo", tag: "/catalog" },
+    { title: "Agendar", tag: "/reservation" },
   ];
 
   return (
-    <div>
+    <div className={onCatalog ? "master-nav" : ""}>
       <nav
         className={
           scroll
@@ -102,7 +110,7 @@ const NavBar = () => {
               ✕
             </button>
           </div>
-          <ul className="flex flex-col justify-center items-center flex-grow space-y-8">
+          <ul className="flex flex-col justify-center items-center space-y-10 pb-28">
             {titles.map((title, index) => (
               <CustomItem
                 key={index}

@@ -12,3 +12,19 @@
 
 
 
+/* Animación fade (desvanecimiento) */
+.fade-enter {
+    opacity: 0;
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out; /* Duración y tipo de transición */
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+  }
+  

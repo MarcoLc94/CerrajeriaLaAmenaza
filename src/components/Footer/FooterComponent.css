@@ -3,7 +3,6 @@
   background-color:  transparent; /* Fondo oscuro */
   color: #ffffff;
   padding: 2rem 1rem;
-  margin-top: auto; /* Empuja el footer hacia el fondo */
   height: auto; /* Asegura que se ajuste al contenido */
 }
 

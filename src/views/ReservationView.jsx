@@ -1,68 +1,53 @@
 import { useEffect, useState } from "react"
 import CustomItem from "../Utils/CustomItem";
-import CatalogComponent from "../components/Catalog/CatalogComponent";
+import ReservationComponent from "../components/Reservation/ReservationComponent";
+import FooterComponent from "../components/Footer/FooterComponent";
 
-
-const CatalogView = ({onCatalog, setOnCatalog}) => {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [scroll, setScroll] = useState(false);
-  const [icon, setIcon] = useState(true);
-
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setScroll(true);
-    } else {
-      setScroll(false);
-    }
-  };
-
-  const handleIcon = () => {
-    setIcon(!icon);
-  };
-
-  const toggleSidebar = () => {
-    handleIcon();
-    setSidebarOpen(!isSidebarOpen);
-  };
-
-  useEffect(() => {
-  setOnCatalog(true)
-  }, [])
-
+const ReservationView = ({onCatalog, setOnCatalog}) => {
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [scroll, setScroll] = useState(false);
+    const [icon, setIcon] = useState(true);
   
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+  
+    const handleIcon = () => {
+      setIcon(!icon);
+    };
+  
+    const toggleSidebar = () => {
+      handleIcon();
+      setSidebarOpen(!isSidebarOpen);
     };
 
-  }, [scroll]);
 
-  const titles = [
-    {title:  "Regresar", tag: "/home" },
-    { title: "Agendar", tag: "/reservation"}
-  ];
+    useEffect(() => {
+        setOnCatalog(true)
+        }, [])
 
-  const keysData = {
-    Toyota: [
-      { model: "Corolla 2020", image: "/images/toyota-corolla.jpg" },
-      { model: "Camry 2021", image: "/images/toyota-camry.jpg" },
-    ],
-    Honda: [
-      { model: "Civic 2019", image: "/images/honda-civic.jpg" },
-      { model: "Accord 2020", image: "/images/honda-accord.jpg" },
-    ],
-    Ford: [
-      { model: "Mustang 2021", image: "/images/ford-mustang.jpg" },
-      { model: "Explorer 2020", image: "/images/ford-explorer.jpg" },
-    ],
-  };
+        useEffect(() => {
+            window.addEventListener("scroll", handleScroll);
+            return () => {
+              window.removeEventListener("scroll", handleScroll);
+            };
+        
+          }, [scroll]);
+        
+          const titles = [
+            {title:  "Volver al Inicio", tag: "/home" },
+            { title: "Catalogo", tag: "/catalog"}
+          ];
+        
+          
 
-  
-  
   return (
     <div>
-      <div className={onCatalog ? "" : "master-nav"}>
+        <div className={onCatalog ? "" : "master-nav"}>
       <nav
         className={
           scroll
@@ -149,9 +134,10 @@ const CatalogView = ({onCatalog, setOnCatalog}) => {
         ></div>
       )}
     </div>
-    <CatalogComponent keys={keysData} />
+    <ReservationComponent/>
+    <FooterComponent/>
     </div>
   )
 }
 
-export default CatalogView
+export default ReservationView

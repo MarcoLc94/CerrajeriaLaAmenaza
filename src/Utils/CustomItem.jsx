@@ -1,16 +1,35 @@
 import "./CustomItem.css";
-import { Link } from "react-scroll";  // Importar Link desde react-scroll
+import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 
-function CustomItem({ title, tag, toggleSidebar }) {
+function CustomItem({ title, tag, toggleSidebar, onCatalog }) {
+  if (onCatalog || title === "Catalogo" || title === "Agendar") {
+    // Caso para navegación externa o cuando el título es "Catalogo"
+    return (
+      <li className="block text-white item-li">
+        <NavLink
+          to={tag}
+          className={({ isActive }) =>
+            isActive ? "active" : "inactive"
+          }
+          onClick={toggleSidebar}
+        >
+          {title}
+        </NavLink>
+      </li>
+    );
+  }
+
+  // Caso para navegación interna con react-scroll
   return (
     <li className="block text-white item-li">
-      <Link 
-        to={tag} 
-        smooth={true} 
-        duration={500} 
-        activeClass="active"  // Agregar la clase activa
-        spy={true}  // Esto asegura que el enlace se active cuando la sección está en vista
-        onClick={() => toggleSidebar()} // Cierra el sidebar al hacer clic
+      <Link
+        to={tag}
+        smooth={true}
+        duration={500}
+        activeClass="active"
+        spy={true}
+        onClick={toggleSidebar}
       >
         {title}
       </Link>

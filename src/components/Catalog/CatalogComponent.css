@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&display=swap');
+
+.catalog-container {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 10vh;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: #001969;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.brand-section {
+  margin-bottom: 2rem;
+}
+
+.brand-title {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1.5rem;
+  color: #001969;
+  margin-bottom: 1rem;
+}
+
+.keys-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.key-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+}
+
+.key-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.key-model {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1rem;
+  color: #333;
+}

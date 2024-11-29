@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+
+
+.h2 {
+    font-family: 'Bebas Neue', sans-serif; /* Título destacado */
+    font-size: 2rem;
+    color: #001969; /* Azul oscuro */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+}
+
+label {
+    font-weight: 500;
+    color: #001969;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    font-family: 'Comfortaa', sans-serif;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #001969;
+    box-shadow: 0 0 5px rgba(0, 25, 105, 0.5);
+}
+
+.button-custom {
+    font-family: 'Comfortaa', sans-serif;
+    background-color: #001969;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.button-custom:hover {
+    background-color: #002bb9;
+    transform: scale(1.05); /* Efecto de hover */
+}
+
+.button-custom:active {
+    transform: scale(1); /* Regresa al tamaño normal */
+    background-color: #001969;
+}
+
+.text-custom {
+    color: #001969;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+

@@ -6,8 +6,16 @@ import WhatsAppButton from "../components/Whatsbutton/WhatsappComponent";
 import FormComponent from "../components/Form/FormComponent";
 import FooterComponent from "../components/Footer/FooterComponent";
 import "./MainView.css";
+import { useEffect } from "react";
 
-const MainView = () => {
+
+const MainView = ({onCatalog, setOnCatalog}) => {
+  
+  useEffect(() => {
+   setOnCatalog(false)
+  }, [])
+  
+
   return (
     <div className="main-container">
       <div id="/home">
