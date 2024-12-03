@@ -3,10 +3,10 @@ import "./FooterComponent.css";
 const FooterComponent = () => {
   return (
     <footer className="footer-class">
-      <div className="px-6 p-2">
-        <div className="gap-8 flex">
+      <div className="footer2 px-6 p-2">
+        <div className="footer3 gap-8 flex">
           {/* Sección de Contacto */}
-          <div>
+          <div className="footer4">
             <h3 className="text-xl font-semibold mb-4">Contacto</h3>
             <h4>Teléfono:</h4><p className="text-gray-400">8126373570</p>
             <h4>Email:</h4><p className="text-gray-400">betito@mail.com</p>
@@ -16,13 +16,13 @@ const FooterComponent = () => {
             </p>
           </div>
           {/* Sección de Redes Sociales */}
-          <div>
+          <div className="footer4">
             <h3 className="text-xl text-center font-semibold mb-4 ">
               Síguenos
             </h3>
-            <div className="flex-col space-x-4 mb-4 flex justify-center">
+            <div className="footer5 flex-col space-x-4 mb-4 flex justify-center">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=100055075004360&mibextid=ZbWKwL"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="icon-social text-gray-400 hover:text-white ml-4"
@@ -30,7 +30,7 @@ const FooterComponent = () => {
                 <img src="/facebook-square-logo-60.png" alt="" />
               </a>
               <a
-                href="https://instagram.com"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="icon-social text-gray-400 hover:text-white"

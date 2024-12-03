@@ -1,3 +1,5 @@
+import "./GalleryComponent.css"
+
 const GalleryComponent = () => {
   const images = [
     [
@@ -14,13 +16,13 @@ const GalleryComponent = () => {
   
   
     return (
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+      <div className="gallery-custom grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
         {images.map((column, columnIndex) => (
-          <div className="grid gap-4" key={columnIndex}>
+          <div className="gallery-item grid gap-4" key={columnIndex}>
             {column.map((image, imageIndex) => (
               <div key={imageIndex}>
                 <img
-                  className="h-auto max-w-full rounded-lg"
+                  className="image-custom h-auto max-w-full rounded-lg"
                   src={image}
                   alt={`Gallery image ${columnIndex}-${imageIndex}`}
                 />

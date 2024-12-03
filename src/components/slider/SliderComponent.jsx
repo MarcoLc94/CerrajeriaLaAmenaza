@@ -32,14 +32,14 @@ const SliderComponent = () => {
   return (
     <div
       id="default-carousel"
-      className="relative w-full h-auto"
+      className=" relative w-full h-auto"
       data-carousel="slide"
     >
-      <div className="absolute inset-0 z-10 flex items-center justify-center align-middle text-white text-2xl font-bold">
+      <div className=" absolute inset-0 z-10 flex items-center justify-center align-middle text-white text-2xl font-bold">
         <h2 className="main-title text-center">Los mejores en auto cerrajeria.</h2>
       </div>
       {/* Carousel wrapper */}
-      <div className="relative h-[60vh] overflow-hidden rounded-lg md:h-96">
+      <div className="carrousel relative h-[60vh] overflow-hidden rounded-lg md:h-96">
         {slides.map((src, index) => (
           <div
             key={index}

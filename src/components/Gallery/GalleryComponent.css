@@ -1,0 +1,23 @@
+@media(width > 767px){
+
+    .gallery-custom {
+        display: flex;
+        justify-content: center;
+    }
+
+    .gallery-custom {
+        width: 100%;
+        
+
+        .gallery-item{
+            display: flex;
+
+
+            .image-custom {
+                width: 100%;
+            }
+        }
+    }
+
+}
+

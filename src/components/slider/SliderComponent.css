@@ -20,3 +20,19 @@
   .main-title {
     font-family: "Comfortaa", sans-serif;
   }
+
+  @media(width > 600px){
+    .carrousel {
+      height: 50vh;
+     }
+  }
+
+  @media(width > 900px){
+   .carrousel {
+    height: 60vh;
+   }
+
+   .main-title {
+    font-size: 40px;
+   }
+  }

@@ -65,3 +65,9 @@
 .master-nav {
   display: none;
 }
+
+.small {
+  letter-spacing: 2px;
+  text-align: center;
+  margin-right: 12px;
+}

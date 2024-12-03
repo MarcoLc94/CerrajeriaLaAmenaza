@@ -12,6 +12,7 @@
 
 .title-custom {
     font-family: "Edu AU VIC WA NT Arrows";
+    font-size: 25px;
 }
 
 .custom-xd {
@@ -41,4 +42,55 @@
 
   .custom-description {
     font-family: "Comfortaa", sans-serif;
+  }
+
+  @media(width < 315px){
+    .section-custom {
+      height: 500px;
+    }
+  }
+
+  @media(width > 600px){
+    .banner-brands {
+      height: 30vh;
+    }
+
+    .section-custom {
+      height: 250px;
+      padding: 15px;
+    }
+
+    .custom-xd {
+      text-align: center;
+    }
+
+    .value-custom {
+      padding: 0px;
+    }
+  }
+
+  @media(width > 1000px ){
+
+    .banner-brands {
+      height: 40vh;
+    }
+  }
+
+  @media(width > 1200px ){
+    .custom-xd {
+      font-size: 35px;
+    }
+
+    .custom-description {
+      padding: 30px;
+      font-size: larger;
+    }
+
+    .title-custom {
+      font-size: 30px;
+    }
+
+    .value-custom {
+      margin-top: 70px;
+    }
   }

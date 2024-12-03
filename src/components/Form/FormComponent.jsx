@@ -45,6 +45,22 @@ const FormComponent = () => {
 
           <div className="mb-4">
             <label
+              htmlFor="email"
+              className="custom-label block text-sm font-medium text-gray-700 mb-1"
+            >
+              Teléfono
+            </label>
+            <input
+              type="tel"
+              id="tel"
+              className="custom-label w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Tu número de teléfono"
+              required
+            />
+          </div>
+
+          <div className="mb-4">
+            <label
               htmlFor="message"
               className="custom-label block text-sm font-medium text-gray-700 mb-1"
             >

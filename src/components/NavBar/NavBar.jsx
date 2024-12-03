@@ -69,6 +69,7 @@ const NavBar = ({onCatalog, setOnCatalog}) => {
               <span className="custom-title self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">
                 Auto Cerrajeria
               </span>
+              <small className="text-white small">8126373570</small>
             </div>
           </div>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
