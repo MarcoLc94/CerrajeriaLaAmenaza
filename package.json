@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "boxicons": "^2.1.4",
     "flatpickr": "^4.6.13",
     "flowbite": "^2.5.2",
@@ -19,6 +20,7 @@
     "react-router-dom": "^7.0.1",
     "react-scroll": "^1.9.0",
     "react-time-picker": "^7.0.0",
+    "react-toastify": "^10.0.6",
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {

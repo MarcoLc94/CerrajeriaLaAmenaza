@@ -24,10 +24,10 @@ const MainView = ({onCatalog, setOnCatalog}) => {
       <div id="/aboutus">
         <ValoresComponent />
       </div>
-      <div id="/services">
+      <div >
         <QuoteComponent />
       </div>
-      <GalleryComponent />
+      <GalleryComponent id="/services" />
       <WhatsAppButton />
       <div id="/contact">
         <FormComponent />

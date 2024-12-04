@@ -1,4 +1,5 @@
 import "./QuoteComponent.css"
+import { NavLink } from "react-router-dom";
 
 const CotizacionComponent = () => {
     return (
@@ -10,11 +11,11 @@ const CotizacionComponent = () => {
           <p className="text-lg md:text-xl mb-6">
             Contáctanos hoy y descubre cómo podemos ayudarte con soluciones rápidas, seguras y confiables para tus necesidades de cerrajería automotriz.
           </p>
-          <button 
+          <NavLink to={"/reservation"}
             className="button-custom text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-all duration-300"
           >
             Solicitar Cotización
-          </button>
+          </NavLink>
         </div>
       </div>
     );

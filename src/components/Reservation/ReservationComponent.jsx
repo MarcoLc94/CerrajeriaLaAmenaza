@@ -1,29 +1,65 @@
 import { useState, useEffect } from "react";
 import Flatpickr from "flatpickr";
-import TimePicker from "react-time-picker";
-import "flatpickr/dist/flatpickr.min.css";
-import "react-time-picker/dist/TimePicker.css";
-import "react-clock/dist/Clock.css";
-import "./ReservationComponent.css";
+import "flatpickr/dist/flatpickr.min.css"; // Estilo de Flatpickr
+import "react-time-picker/dist/TimePicker.css"; // Estilo de TimePicker
+import "./ReservationComponent.css"; // Asegúrate de tener tus estilos personalizados
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser'; // Importar emailjs
 
 const ReservationComponent = () => {
-  const [fecha, setFecha] = useState("");
-  const [hora, setHora] = useState("");
+  const [fecha, setFecha] = useState(""); // Fecha seleccionada
+  const [hora, setHora] = useState("");   // Hora seleccionada
+  const [nombre, setNombre] = useState(""); // Nombre del cliente
+  const [comentarios, setComentarios] = useState(""); // Comentarios
+  const [email, setEmail] = useState(""); // Email del cliente
 
-  const handleSubmit = (e) => {
+  // Función para manejar el envío del formulario
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Reserva hecha para el ${fecha} a las ${hora}`);
+
+    try {
+      const templateParams = {
+        from_name: nombre,  // Nombre del cliente
+        from_email: email, // Email del cliente
+        message: {
+        date: fecha,
+        time: hora,
+        comments: comentarios,}
+      };
+
+      // Enviar el correo usando EmailJS
+      await emailjs.send(
+        'service_0p779pc', // Tu service ID
+        'template_ydvmyd9', // Tu template ID
+        templateParams,
+        'Genp-_Rzip-Rps60D' // Tu public key
+      );
+      
+      toast.success(`Reserva hecha para el ${fecha} a las ${hora}`);
+    } catch (err) {
+      if (err instanceof EmailJSResponseStatus) {
+        toast.error('EMAILJS FAILED...', err.text);
+        return;
+      }
+    
+      toast.error('ERROR', err);
+    }
   };
 
   useEffect(() => {
-    // Inicializa Flatpickr para el calendario
+    // Inicializa Flatpickr para seleccionar la fecha
     Flatpickr("#calendario", {
       inline: true,
+      enableTime: true, // Activar la selección de hora
+      noCalendar: false, // Mostrar calendario
+      dateFormat: "Y-m-d H:i", // Formato de fecha y hora
       onChange: (selectedDates) => {
-        setFecha(selectedDates[0].toISOString().split("T")[0]);
+        setFecha(selectedDates[0].toISOString().split("T")[0]); // Solo fecha (sin hora)
+        setHora(selectedDates[0].toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })); // Solo hora
       },
     });
-  }, []);
+  }, []); // Solo ejecuta una vez al montar el componente
 
   return (
     <div className="container mt-16">
@@ -31,20 +67,36 @@ const ReservationComponent = () => {
         <h2 className="h2">Agenda tu cita</h2>
         <div>
           <label>Selecciona una fecha:</label>
-          <div id="calendario"></div> {/* Calendario siempre visible */}
+          <div id="calendario"></div> {/* Calendario visible y editable */}
         </div>
         <div className="mt-4">
-          <label>Selecciona una hora:</label>
-          <TimePicker
-            onChange={setHora}
+          <label>Hora seleccionada:</label>
+          {/* Muestra la hora seleccionada */}
+          <input
+            type="text"
             value={hora}
-            disableClock={false} // Cambia a `true` si solo deseas un selector de texto
+            readOnly
             className="custom-time-picker w-full"
+            disabled
           />
         </div>
         <div className="mt-4">
           <label htmlFor="name">Nombre:</label>
-          <input type="text" />
+          <input
+            type="text"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)} // Controla el estado de nombre
+            required
+          />
+        </div>
+        <div className="mt-4">
+          <label htmlFor="email">Correo electrónico:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} // Controla el estado de email
+            required
+          />
         </div>
         <div>
           <label htmlFor="comment">Comentarios:</label>
@@ -54,11 +106,9 @@ const ReservationComponent = () => {
             rows="4"
             cols="30"
             placeholder="Escribe tus comentarios aquí..."
+            value={comentarios}
+            onChange={(e) => setComentarios(e.target.value)} // Controla el estado de comentarios
           />
-        </div>
-        <div>
-          <label htmlFor="comment">Comentarios:</label>
-          <input type="text area" />
         </div>
         <div className="flex justify-center">
           <button type="submit" className="button-custom mt-5">
@@ -66,41 +116,16 @@ const ReservationComponent = () => {
           </button>
         </div>
       </form>
+      <ToastContainer 
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={true}
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
     </div>
   );
 };
 
 export default ReservationComponent;
-
-{
-  /* <form onSubmit={handleSubmit}>
-        <h2 className="h2">¿Te devolvemos la llamada?</h2>
-        <div>
-          <label htmlFor="fecha">Selecciona una fecha:</label>
-          <input
-            type="date"
-            id="fecha"
-            name="fecha"
-            value={fecha}
-            onChange={(e) => setFecha(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="hora">Selecciona una hora:</label>
-          <input
-            type="time"
-            id="hora"
-            name="hora"
-            value={hora}
-            onChange={(e) => setHora(e.target.value)}
-            required
-          />
-        </div>
-        <div className="flex justify-center">
-          <button type="submit" className="button-custom">
-            Programar llamada
-          </button>
-        </div>
-      </form> */
-}

@@ -41,7 +41,6 @@ const NavBar = ({onCatalog, setOnCatalog}) => {
   const titles = [
     { title: "Inicio", tag: "/home" },
     { title: "Nosotros", tag: "/aboutus" },
-    { title: "Cotizar", tag: "/services" },
     { title: "Contacto", tag: "/contact" },
     { title: "Catalogo", tag: "/catalog" },
     { title: "Agendar", tag: "/reservation" },
