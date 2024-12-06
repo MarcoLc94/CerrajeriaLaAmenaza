@@ -32,7 +32,7 @@ const ValoresComponent = () => {
     <div className="cover">
       <img src="/banner-key-car.png" alt="" className="banner-brands w-full h-[15vh]" />
       <section className="section-custom">
-        <h1 className="custom-xd text-white text-justify p-4 pt-10 font-semibold">
+        <h1 className="custom-xd text-white text-justify p-4 pt-10 font-black">
           Servicios de apertura, diseño y programación de llaves para vehiculos.
         </h1>
         <div className="h-[30vh] p-5">
@@ -54,7 +54,7 @@ const ValoresComponent = () => {
         {valores.map((valor, index) => (
           <div
             key={index}
-            className="value-custom flex flex-col items-center justify-center p-4 text-justify"
+            className="value-custom flex flex-col items-center justify-center p-4 text-center"
           >
             <div className="flex items-center justify-center md:flex-col md:items-center">
               <img

@@ -77,3 +77,9 @@ input:focus {
     min-height: 100vh;
 }
 
+@media(width > 1000px ){
+    .container {
+        width: 100vw;
+    }
+}
+

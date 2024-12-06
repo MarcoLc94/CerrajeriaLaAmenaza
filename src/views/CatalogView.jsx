@@ -44,19 +44,44 @@ const CatalogView = ({onCatalog, setOnCatalog}) => {
   ];
 
   const keysData = {
-    Toyota: [
-      { model: "Corolla 2020", image: "/images/toyota-corolla.jpg" },
-      { model: "Camry 2021", image: "/images/toyota-camry.jpg" },
+    "Llaves Convencionales": [
+      {
+        name: "Llave de Puerta",
+        description: "Llave estándar para abrir puertas de automóviles.",
+        image: "/convencional-key.jpg",
+      },
+      {
+        name: "Llave de Encendido",
+        description: "Llave metálica utilizada para arrancar vehículos más antiguos.",
+        image: "/encendido-key.jpg",
+      },
     ],
-    Honda: [
-      { model: "Civic 2019", image: "/images/honda-civic.jpg" },
-      { model: "Accord 2020", image: "/images/honda-accord.jpg" },
+    "Llaves Electrónicas": [
+      {
+        name: "Llave Transponder",
+        description: "Llave con chip que proporciona mayor seguridad.",
+        image: "/transponder-key.jpg",
+      },
+      {
+        name: "Llave de Mando a Distancia",
+        description: "Permite abrir y cerrar el coche de forma remota.",
+        image: "/remote-key.jpg",
+      },
     ],
-    Ford: [
-      { model: "Mustang 2021", image: "/images/ford-mustang.jpg" },
-      { model: "Explorer 2020", image: "/images/ford-explorer.jpg" },
+    "Llaves Especializadas": [
+      {
+        name: "Llave Valet",
+        description: "Llave limitada para valet parking o servicios similares.",
+        image: "/valet-key.jpg",
+      },
+      {
+        name: "Llave Inteligente",
+        description: "Llave con tecnología de proximidad para abrir y arrancar el coche.",
+        image: "/smart-key.jpg",
+      },
     ],
   };
+  
 
   
   

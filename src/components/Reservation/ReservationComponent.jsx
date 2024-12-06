@@ -47,7 +47,10 @@ const ReservationComponent = () => {
     }
   };
 
+
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     // Inicializa Flatpickr para seleccionar la fecha
     Flatpickr("#calendario", {
       inline: true,
@@ -63,7 +66,7 @@ const ReservationComponent = () => {
 
   return (
     <div className="container mt-16">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-custom">
         <h2 className="h2">Agenda tu cita</h2>
         <div>
           <label>Selecciona una fecha:</label>
