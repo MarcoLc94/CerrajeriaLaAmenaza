@@ -26,7 +26,7 @@ const CatalogComponent = ({ keys }) => {
 
   return (
     <div className="catalog-container">
-      <h2 className="h2">Catálogo de Tipos de Llaves</h2>
+      <h1 className="h2">Catálogo de Tipos de Llaves</h1>
       {Object.keys(keys).map((type) => (
         <div key={type} className="type-section">
           <h3 className="type-title">{type}</h3>
