@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import "./NavBar.css";
 import CustomItem from "../../Utils/CustomItem";
+import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
-
-const NavBar = ({onCatalog, setOnCatalog}) => {
+const NavBar = ({ onCatalog, setOnCatalog }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [icon, setIcon] = useState(true);
+  const location = useLocation();
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -26,21 +28,18 @@ const NavBar = ({onCatalog, setOnCatalog}) => {
   };
 
   useEffect(() => {
-   setOnCatalog(false)
-  }, [])
-  
+    setOnCatalog(false);
+  }, [location]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-
   }, [scroll]);
 
   const titles = [
     { title: "Inicio", tag: "/home" },
-    { title: "Nosotros", tag: "/aboutus" },
     { title: "Contacto", tag: "/contact" },
     { title: "Catalogo", tag: "/catalog" },
     { title: "Agendar", tag: "/reservation" },
@@ -117,6 +116,7 @@ const NavBar = ({onCatalog, setOnCatalog}) => {
                 title={title.title}
                 tag={title.tag}
                 toggleSidebar={toggleSidebar}
+                isActive={location.pathname === title.tag}
               />
             ))}
           </ul>
@@ -135,6 +135,11 @@ const NavBar = ({onCatalog, setOnCatalog}) => {
       )}
     </div>
   );
+};
+
+NavBar.propTypes = {
+  onCatalog: PropTypes.func.isRequired,
+  setOnCatalog: PropTypes.func.isRequired,
 };
 
 export default NavBar;

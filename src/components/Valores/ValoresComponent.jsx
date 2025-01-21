@@ -1,4 +1,6 @@
 import "./valoresComponent.css";
+import "../fluidSlider/ImageSliderComponent";
+import ImageSlider from "../fluidSlider/ImageSliderComponent";
 
 const ValoresComponent = () => {
   const valores = [
@@ -30,7 +32,7 @@ const ValoresComponent = () => {
 
   return (
     <div className="cover">
-      <img src="/banner-key-car.png" alt="" className="banner-brands w-full h-[15vh]" />
+      <ImageSlider />
       <section className="section-custom">
         <h1 className="custom-xd text-white text-justify p-4 pt-10 font-black">
           Servicios de apertura, diseño y programación de llaves para vehiculos.

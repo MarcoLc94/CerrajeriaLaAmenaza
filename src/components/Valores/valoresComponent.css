@@ -1,28 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .cover {
-    background:
-        url('/wallpaper-art.png'),
-        linear-gradient(to bottom, #001969, #000);
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    max-height: auto;
+  background: url("/wallpaper-art.png"),
+    linear-gradient(to bottom, #001969, #000);
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  max-height: auto;
 }
 
 .title-custom {
-    font-family: "Edu AU VIC WA NT Arrows";
-    font-size: 25px;
+  font-family: "roboto";
+  font-size: 25px;
 }
 
 .custom-xd {
-    font-family: "Comfortaa", sans-serif;
-   font-size: 20px;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 20px;
 }
 
 .custom-description {
-    font-family: "Comfortaa", sans-serif;
-    font-size: 15px;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 15px;
 }
 
 /* .icontext {
@@ -30,67 +29,66 @@
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 2fr;
   } */
-  
-  .main-item {
-    height: 800px;
-    background-color: transparent;
+
+.main-item {
+  height: 800px;
+  background-color: transparent;
+}
+
+.section-custom {
+  height: 350px;
+}
+
+.custom-description {
+  font-family: "Comfortaa", sans-serif;
+}
+
+@media (width < 315px) {
+  .section-custom {
+    height: 500px;
+  }
+}
+
+@media (width > 600px) {
+  .banner-brands {
+    height: 30vh;
   }
 
   .section-custom {
-    height: 350px;
+    height: 250px;
+    padding: 15px;
+  }
+
+  .custom-xd {
+    text-align: center;
+  }
+
+  .value-custom {
+    padding: 0px;
+  }
+}
+
+@media (width > 1000px) {
+  .banner-brands {
+    height: 40vh;
+  }
+}
+
+@media (width > 1200px) {
+  .custom-xd {
+    font-size: 35px;
   }
 
   .custom-description {
-    font-family: "Comfortaa", sans-serif;
+    padding: 30px;
+    font-size: larger;
   }
 
-  @media(width < 315px){
-    .section-custom {
-      height: 500px;
-    }
+  .title-custom {
+    font-size: 30px;
   }
 
-  @media(width > 600px){
-    .banner-brands {
-      height: 30vh;
-    }
-
-    .section-custom {
-      height: 250px;
-      padding: 15px;
-    }
-
-    .custom-xd {
-      text-align: center;
-    }
-
-    .value-custom {
-      padding: 0px;
-    }
+  .value-custom {
+    margin-top: 70px;
   }
-
-  @media(width > 1000px ){
-
-    .banner-brands {
-      height: 40vh;
-    }
-  }
-
-  @media(width > 1200px ){
-    .custom-xd {
-      font-size: 35px;
-    }
-
-    .custom-description {
-      padding: 30px;
-      font-size: larger;
-    }
-
-    .title-custom {
-      font-size: 30px;
-    }
-
-    .value-custom {
-      margin-top: 70px;
-    }
-  }
+}
