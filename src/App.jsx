@@ -24,15 +24,25 @@ const App = () => {
             <Routes location={location}>
               <Route
                 path="home"
-                element={<MainView onCatalog={onCatalog} setOnCatalog={setOnCatalog} />}
+                element={<MainView setOnCatalog={setOnCatalog} />}
               />
               <Route
                 path="catalog"
-                element={<CatalogView onCatalog={onCatalog} setOnCatalog={setOnCatalog} />}
+                element={
+                  <CatalogView
+                    onCatalog={onCatalog}
+                    setOnCatalog={setOnCatalog}
+                  />
+                }
               />
               <Route
                 path="reservation"
-                element={<ReservationView onCatalog={onCatalog} setOnCatalog={setOnCatalog} />}
+                element={
+                  <ReservationView
+                    onCatalog={onCatalog}
+                    setOnCatalog={setOnCatalog}
+                  />
+                }
               />
               <Route path="*" element={<Navigate to="home" />} />
             </Routes>
