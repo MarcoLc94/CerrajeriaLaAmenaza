@@ -70,28 +70,7 @@
   margin-right: 12px;
 }
 
-.active-home {
-  transform: scale(1.5);
-  color: #003cff;
-  filter: drop-shadow(1px 1px 10px #013cff);
-  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
-}
-
-.active-contact {
-  transform: scale(1.5);
-  color: #003cff;
-  filter: drop-shadow(1px 1px 10px #013cff);
-  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
-}
-
-.active-catalog {
-  transform: scale(1.5);
-  color: #003cff;
-  filter: drop-shadow(1px 1px 10px #013cff);
-  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
-}
-
-.active-reservation {
+.isActive {
   transform: scale(1.5);
   color: #003cff;
   filter: drop-shadow(1px 1px 10px #013cff);

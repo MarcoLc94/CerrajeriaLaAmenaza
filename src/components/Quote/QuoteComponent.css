@@ -17,7 +17,7 @@
 .allcards {
   display: flex;
   flex-direction: column;
-  margin: 50px;
+  margin: 50px 40px 0px 40px;
   justify-content: space-around;
   align-items: center;
 
@@ -28,31 +28,59 @@
   }
 
   img {
-    max-width: 50vw;
+    max-width: 30vw;
     max-height: 30vh;
     margin: 10px;
   }
 }
 
-@media (width > 900px) {
+.quote-square {
+  display: flex;
+  align-items: center;
+}
+
+.allcards {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 40px 0px 40px;
+  align-items: center;
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .photoinside {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  img {
+    margin: 10px;
+  }
+}
+
+@media (width < 850px) {
   .quote-square {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+  }
+
+  .photoinside {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
   }
 
   .allcards {
-    display: flex;
-    flex-direction: column;
-    margin: 50px;
-    align-items: center;
-
-    .photoinside {
-      display: flex;
-      justify-content: space-around;
+    h1 {
+      font-size: 30px;
     }
+  }
+}
 
-    img {
-      margin: 10px;
-    }
+@media (width < 1200px) {
+  .none {
+    display: none;
   }
 }

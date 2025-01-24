@@ -7,7 +7,7 @@ function CustomItem({ title, tag, toggleSidebar, onCatalog, isActive }) {
   if (onCatalog || title === "Catalogo" || title === "Agendar") {
     // Caso para navegación externa o cuando el título es "Catalogo"
     return (
-      <li className="block text-white item-li">
+      <li className="block  item-li">
         <NavLink
           to={tag}
           className={`text-white ${

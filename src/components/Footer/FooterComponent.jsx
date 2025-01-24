@@ -8,11 +8,13 @@ const FooterComponent = () => {
           {/* Sección de Contacto */}
           <div className="footer4">
             <h3 className="text-xl font-semibold mb-4">Contacto</h3>
-            <h4>Teléfono:</h4><p className="text-gray-400">8126373570</p>
-            <h4>Email:</h4><p className="text-gray-400">betito@mail.com</p>
-            <h4>Dirección:</h4><p className="text-gray-400">
-              Camino alas escobas 1063
-              Guadalupe,NL.
+            <h4>Teléfono:</h4>
+            <p className="text-gray-400">8126373570</p>
+            <h4>Email:</h4>
+            <p className="text-gray-400">autocerrajeriamx@gmail.com</p>
+            <h4>Dirección:</h4>
+            <p className="text-gray-400">
+              Camino a las escobas 1063 Guadalupe,NL.
             </p>
           </div>
           {/* Sección de Redes Sociales */}
@@ -44,8 +46,8 @@ const FooterComponent = () => {
         {/* Derechos de autor */}
         <div className="text-center mt-8">
           <p className="text-gray-400">
-            &copy; {new Date().getFullYear()} Cerrjaería La Amenaza. Todos los
-            derechos reservados.
+            &copy; {new Date().getFullYear()} Autocerrajeria. Todos los derechos
+            reservados.
           </p>
         </div>
       </div>
