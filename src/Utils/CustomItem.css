@@ -1,15 +1,14 @@
 .item-li {
-    font-weight: 700;
-    font-size: 24px;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 .item-li:hover {
-  color: rgb(24, 24, 255);
   transform: scale(1.2);
   cursor: pointer;
   filter: drop-shadow(1px 1px 10px #013cff);
 }
 
 .custom-submit {
-  background-color:  #001969;
+  background-color: #001969;
 }

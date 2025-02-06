@@ -1,17 +1,18 @@
 import "./CustomItem.css";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function CustomItem({ title, tag, toggleSidebar, onCatalog }) {
+function CustomItem({ title, tag, toggleSidebar, onCatalog, isActive }) {
   if (onCatalog || title === "Catalogo" || title === "Agendar") {
     // Caso para navegación externa o cuando el título es "Catalogo"
     return (
-      <li className="block text-white item-li">
+      <li className="block  item-li">
         <NavLink
           to={tag}
-          className={({ isActive }) =>
-            isActive ? "active" : "inactive"
-          }
+          className={`text-white ${
+            isActive ? "text-blue-500 font-bold" : "text-gray-400"
+          }`}
           onClick={toggleSidebar}
         >
           {title}
@@ -36,5 +37,13 @@ function CustomItem({ title, tag, toggleSidebar, onCatalog }) {
     </li>
   );
 }
+
+CustomItem.propTypes = {
+  title: PropTypes.func.isRequired,
+  tag: PropTypes.func.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+  onCatalog: PropTypes.func.isRequired,
+  isActive: PropTypes.func.isRequired,
+};
 
 export default CustomItem;

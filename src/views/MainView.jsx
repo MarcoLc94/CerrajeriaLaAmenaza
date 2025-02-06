@@ -7,14 +7,12 @@ import FormComponent from "../components/Form/FormComponent";
 import FooterComponent from "../components/Footer/FooterComponent";
 import "./MainView.css";
 import { useEffect } from "react";
+import PropTypes from "prop-types";
 
-
-const MainView = ({onCatalog, setOnCatalog}) => {
-  
+const MainView = ({ setOnCatalog }) => {
   useEffect(() => {
-   setOnCatalog(false)
-  }, [])
-  
+    setOnCatalog(false);
+  });
 
   return (
     <div className="main-container">
@@ -24,7 +22,7 @@ const MainView = ({onCatalog, setOnCatalog}) => {
       <div id="/aboutus">
         <ValoresComponent />
       </div>
-      <div >
+      <div>
         <QuoteComponent />
       </div>
       <GalleryComponent id="/services" />
@@ -35,6 +33,10 @@ const MainView = ({onCatalog, setOnCatalog}) => {
       <FooterComponent />
     </div>
   );
+};
+
+MainView.propTypes = {
+  setOnCatalog: PropTypes.func.isRequired, // Verifica que sea una función requerida.
 };
 
 export default MainView;

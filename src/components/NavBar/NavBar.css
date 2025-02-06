@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap");
 /* Clase base para el navbar */
 .navbar {
   background-color: transparent;
@@ -8,7 +8,7 @@
 
 /* Gradiente aplicado al hacer scroll */
 .nav-gradient {
-  background-color:  #001969; /* Gradiente azul */
+  background-color: #001969; /* Gradiente azul */
   transition: background-color 0.3s ease-in;
 }
 
@@ -17,7 +17,6 @@
   display: inline-block;
   overflow: hidden;
 }
-
 
 .button-menu:hover {
   transform: scale(1.2);
@@ -53,8 +52,7 @@
 }
 
 .custom-title:hover {
-   cursor: pointer;
-   
+  cursor: pointer;
 }
 
 .custom-title {
@@ -70,4 +68,11 @@
   letter-spacing: 2px;
   text-align: center;
   margin-right: 12px;
+}
+
+.isActive {
+  transform: scale(1.5);
+  color: #003cff;
+  filter: drop-shadow(1px 1px 10px #013cff);
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }

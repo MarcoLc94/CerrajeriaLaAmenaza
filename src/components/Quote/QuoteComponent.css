@@ -1,21 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap");
 
 .text-custom {
-    color: #001969;
-    font-family: "Comfortaa", sans-serif;
+  color: #001969;
+  font-family: "Comfortaa", sans-serif;
 }
 
 .button-custom {
-    background-color: #001969;
+  background-color: #001969;
 }
 
 .button-custom:hover {
-    background-color: #002bb9;
-    transform: scale(1.1);
+  background-color: #002bb9;
+  transform: scale(1.1);
 }
 
-@media(width > 900px) {
-    .quote-square {
-        height: 40vh;
+.allcards {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 40px 0px 40px;
+  justify-content: space-around;
+  align-items: center;
+
+  h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  img {
+    max-width: 30vw;
+    max-height: 30vh;
+    margin: 10px;
+  }
+}
+
+.quote-square {
+  display: flex;
+  align-items: center;
+}
+
+.allcards {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 40px 0px 40px;
+  align-items: center;
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .photoinside {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  img {
+    margin: 10px;
+  }
+}
+
+@media (width < 850px) {
+  .quote-square {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photoinside {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .allcards {
+    h1 {
+      font-size: 30px;
     }
+  }
+}
+
+@media (width < 1200px) {
+  .none {
+    display: none;
+  }
 }
