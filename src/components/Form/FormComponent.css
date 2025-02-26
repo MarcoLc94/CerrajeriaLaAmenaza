@@ -1,29 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap");
 
-.custom-button { 
-    color: #001969;
-    
+.custom-button {
+  color: #001969;
 }
 
 .custom-label {
-    color: #001969;
-    font-size: 18px;
+  color: #001969;
+  font-size: 18px;
 }
 
 .custom-submit {
-    transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .custom-submit:hover {
-    background-color: #002bb9;
-    transform: scale(1.1);
-    transition: all 0.2s ease-in-out;
+  background-color: #002bb9;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-disabled {
+  background-color: gray;
 }
 
 * {
-    font-family: "Comfortaa", sans-serif;
+  font-family: "Comfortaa", sans-serif;
 }
 
 .form-container {
-    background-color: #001969;
+  background-color: #001969;
 }
