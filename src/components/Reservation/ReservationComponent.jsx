@@ -15,6 +15,8 @@ const ReservationComponent = () => {
   const [email, setEmail] = useState(""); // Email del cliente
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [emailTouched, setEmailTouched] = useState(false);
+  const [nombreTouched, setNombreTouched] = useState(false);
+  const [comentariosTouched, setComentariosTouched] = useState(false);
 
   useEffect(() => {
     if (emailTouched) {
@@ -37,6 +39,11 @@ const ReservationComponent = () => {
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isFormValid()) {
+      toast.error("Por favor, completa todos los campos correctamente.");
+      return;
+    }
 
     try {
       const templateParams = {
@@ -68,6 +75,19 @@ const ReservationComponent = () => {
     }
   };
 
+  // Validar que el formulario esté completo y sea válido
+  const isFormValid = () => {
+    return (
+      nombre.trim() !== "" &&
+      email.trim() !== "" &&
+      validateEmail(email) &&
+      isEmailValid &&
+      fecha.trim() !== "" &&
+      hora.trim() !== "" &&
+      comentarios.trim() !== ""
+    );
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     // Inicializa Flatpickr para seleccionar la fecha
@@ -88,12 +108,23 @@ const ReservationComponent = () => {
     });
   }, []); // Solo ejecuta una vez al montar el componente
 
+  // Función para determinar si un campo es inválido
+  const isFieldInvalid = (fieldName) => {
+    switch (fieldName) {
+      case "nombre":
+        return nombreTouched && nombre.trim() === "";
+      case "email":
+        return emailTouched && !validateEmail(email);
+      case "comentarios":
+        return comentariosTouched && comentarios.trim() === "";
+      default:
+        return false;
+    }
+  };
+
   return (
     <div className="container mt-16">
-      <form
-        onSubmit={isEmailValid ? handleSubmit : null}
-        className="form-custom"
-      >
+      <form onSubmit={handleSubmit} className="form-custom">
         <h2 className="h2">Agenda tu cita</h2>
         <div>
           <label>Selecciona una fecha:</label>
@@ -115,9 +146,21 @@ const ReservationComponent = () => {
           <input
             type="text"
             value={nombre}
-            onChange={(e) => setNombre(e.target.value)} // Controla el estado de nombre
+            onChange={(e) => {
+              setNombre(e.target.value);
+              setNombreTouched(true);
+            }}
+            onBlur={() => setNombreTouched(true)}
+            className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
+              isFieldInvalid("nombre")
+                ? "border-red-500 focus:ring-red-500"
+                : "border-gray-300 focus:ring-blue-500"
+            }`}
             required
           />
+          {isFieldInvalid("nombre") && (
+            <small className="text-red-600">El nombre es requerido.</small>
+          )}
         </div>
         <div className="mt-4">
           <label htmlFor="email">Correo electrónico:</label>
@@ -126,10 +169,15 @@ const ReservationComponent = () => {
             value={email}
             onChange={handleEmailChange}
             onBlur={() => setEmailTouched(true)}
+            className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
+              isFieldInvalid("email")
+                ? "border-red-500 focus:ring-red-500"
+                : "border-gray-300 focus:ring-blue-500"
+            }`}
             required
           />
-          {emailTouched && !isEmailValid && (
-            <small className="text-red-600">Ingrese un email válido</small>
+          {isFieldInvalid("email") && (
+            <small className="text-red-600">Ingrese un email válido.</small>
           )}
         </div>
         <div>
@@ -141,18 +189,29 @@ const ReservationComponent = () => {
             cols="30"
             placeholder="Escribe tus comentarios aquí..."
             value={comentarios}
-            onChange={(e) => setComentarios(e.target.value)} // Controla el estado de comentarios
+            onChange={(e) => {
+              setComentarios(e.target.value);
+              setComentariosTouched(true);
+            }}
+            onBlur={() => setComentariosTouched(true)}
+            className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
+              isFieldInvalid("comentarios")
+                ? "border-red-500 focus:ring-red-500"
+                : "border-gray-300 focus:ring-blue-500"
+            }`}
+            required
           />
+          {isFieldInvalid("comentarios") && (
+            <small className="text-red-600">
+              Los comentarios son requeridos.
+            </small>
+          )}
         </div>
         <div className="flex justify-center">
           <button
             type="submit"
-            className={
-              isEmailValid
-                ? "button-custom mt-5"
-                : "bg-gray-500 w-full  font-semibold py-2 px-4 rounded-md shadow-md focus:outline-none"
-            }
-            disabled={emailTouched && !isEmailValid}
+            className="button-custom mt-5 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={!isFormValid()}
           >
             Enviar Cita
           </button>
