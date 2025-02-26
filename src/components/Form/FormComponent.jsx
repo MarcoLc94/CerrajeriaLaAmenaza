@@ -1,22 +1,22 @@
 import { useState } from "react";
 import "./FormComponent.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
 const FormComponent = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    tel: '',
-    message: ''
+    name: "",
+    email: "",
+    tel: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({
       ...formData,
-      [id]: value
+      [id]: value,
     });
   };
 
@@ -24,18 +24,18 @@ const FormComponent = () => {
     e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
     try {
       await emailjs.send(
-        'service_0p779pc',     // Reemplaza con tu Service ID
-        'template_ydvmyd9',    // Reemplaza con tu Template ID
+        "service_0p779pc", // Reemplaza con tu Service ID
+        "template_ydvmyd9", // Reemplaza con tu Template ID
         {
           name: formData.name,
           email: formData.email,
           tel: formData.tel,
-          message: formData.message
+          message: formData.message,
         },
-        'Genp-_Rzip-Rps60D'      // Reemplaza con tu Public Key
+        "Genp-_Rzip-Rps60D" // Reemplaza con tu Public Key
       );
       toast.success("¡Tu mensaje se ha enviado con éxito!");
-      setFormData({ name: '', email: '', tel: '', message: '' }); // Limpiar el formulario
+      setFormData({ name: "", email: "", tel: "", message: "" }); // Limpiar el formulario
     } catch (err) {
       if (err instanceof EmailJSResponseStatus) {
         toast.error(`EMAILJS FAILED: ${err.text}`);
@@ -134,7 +134,7 @@ const FormComponent = () => {
           </button>
         </form>
       </div>
-      <ToastContainer 
+      <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={true}
@@ -147,4 +147,3 @@ const FormComponent = () => {
 };
 
 export default FormComponent;
-
