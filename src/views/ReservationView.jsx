@@ -138,7 +138,7 @@ const ReservationView = ({ onCatalog, setOnCatalog }) => {
 };
 
 ReservationView.propTypes = {
-  onCatalog: PropTypes.func.isRequired,
+  onCatalog: PropTypes.bool.isRequired,
   setOnCatalog: PropTypes.func.isRequired,
 };
 

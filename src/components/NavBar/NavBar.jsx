@@ -3,6 +3,7 @@ import "./NavBar.css";
 import CustomItem from "../../Utils/CustomItem";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import PublicityComponent from "../Publicity/Publicity";
 
 const NavBar = ({ onCatalog, setOnCatalog }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -29,7 +30,7 @@ const NavBar = ({ onCatalog, setOnCatalog }) => {
 
   useEffect(() => {
     setOnCatalog(false);
-  }, [location]);
+  }, [setOnCatalog, location]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -54,6 +55,7 @@ const NavBar = ({ onCatalog, setOnCatalog }) => {
             : "navbar dark:bg-gray-900 fixed w-full z-50 top-0 start-0 dark:border-gray-600"
         }
       >
+        <PublicityComponent />
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <div className="flex gap-2">
             <div>
@@ -67,7 +69,7 @@ const NavBar = ({ onCatalog, setOnCatalog }) => {
               <span className="custom-title self-center text-2xl font-semibold whitespace-nowrap text-white dark:text-white">
                 Auto Cerrajeria
               </span>
-              <small className="text-white small">8126373570</small>
+              <h3 className="text-white small">📞8126373570</h3>
             </div>
           </div>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -138,7 +140,7 @@ const NavBar = ({ onCatalog, setOnCatalog }) => {
 };
 
 NavBar.propTypes = {
-  onCatalog: PropTypes.func.isRequired,
+  onCatalog: PropTypes.bool.isRequired,
   setOnCatalog: PropTypes.func.isRequired,
 };
 

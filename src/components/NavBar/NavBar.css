@@ -65,9 +65,9 @@
 }
 
 .small {
-  letter-spacing: 2px;
+  letter-spacing: 5px;
   text-align: center;
-  margin-right: 12px;
+  margin-right: 15px;
 }
 
 .isActive {

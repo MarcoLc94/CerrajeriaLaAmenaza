@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CatalogComponent.css"; // Importar el archivo CSS
+import PropTypes from "prop-types";
 
 const CatalogComponent = ({ keys }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -82,3 +83,7 @@ const CatalogComponent = ({ keys }) => {
 };
 
 export default CatalogComponent;
+
+CatalogComponent.propTypes = {
+  keys: PropTypes.object,
+};
