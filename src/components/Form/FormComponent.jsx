@@ -1,8 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./FormComponent.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
+import ReactCountryFlag from "react-country-flag"; // Importar la librería de banderas
+import Select from "react-select"; // Importar react-select
+
+// Array de países con códigos ISO y ladas
+const countries = [
+  { value: "+52", label: "MX", iso: "MX" }, // MX es el código ISO para México
+  { value: "+1", label: "EU", iso: "US" }, // US es el código ISO para Estados Unidos
+  { value: "+34", label: "ES", iso: "ES" }, // ES es el código ISO para España
+  { value: "+51", label: "PE", iso: "PE" }, // PE es el código ISO para Perú
+  { value: "+54", label: "AR", iso: "AR" }, // AR es el código ISO para Argentina
+  // Agrega más países según sea necesario
+];
 
 const FormComponent = () => {
   const [formData, setFormData] = useState({
@@ -10,55 +22,68 @@ const FormComponent = () => {
     email: "",
     tel: "",
     message: "",
+    countryCode: "+52", // Código de país por defecto (México)
   });
 
-  // Agregar estado para saber si el email ha sido tocado
-  const [emailTouched, setEmailTouched] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(true); // Mantener true inicialmente
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    tel: false,
+    message: false,
+  });
 
-  // Modificar el useEffect para considerar si el campo ha sido tocado
-  useEffect(() => {
-    if (emailTouched) {
-      setIsEmailValid(validateEmail(formData.email) && formData.email !== "");
-    }
-  }, [formData.email, emailTouched]);
-
-  // Separar la lógica del teléfono a una función específica
-  const handlePhoneChange = (e) => {
-    const value = e.target.value.replace(/\D/g, "");
-    setFormData({
-      ...formData,
-      tel: value,
-    });
+  // Validar el email
+  const validateEmail = (email) => {
+    const emailValidator = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/;
+    return emailValidator.test(email);
   };
 
-  // Modificar el handleChange para el email
-  const handleEmailChange = (e) => {
-    const { value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      email: value,
-    }));
-    setEmailTouched(true);
+  // Validar que el formulario esté completo y sea válido
+  const isFormValid = () => {
+    return (
+      formData.name.trim() !== "" &&
+      formData.email.trim() !== "" &&
+      validateEmail(formData.email) &&
+      formData.tel.trim() !== "" &&
+      /^\d{10}$/.test(formData.tel) && // Teléfono debe tener 10 dígitos
+      formData.message.trim().length >= 10 // Al menos 10 caracteres en el mensaje
+    );
   };
 
-  // Manejar cambios para los demás campos
+  // Manejar cambios en los campos
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({
       ...formData,
       [id]: value,
     });
+    setTouched({
+      ...touched,
+      [id]: true,
+    });
   };
 
-  const validateEmail = (emailData) => {
-    const emailValidator = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/;
-
-    return emailValidator.test(emailData);
+  // Manejar cambios en el código de país
+  const handleCountryCodeChange = (selectedOption) => {
+    setFormData({
+      ...formData,
+      countryCode: selectedOption.value,
+    });
+    setTouched({
+      ...touched,
+      tel: true,
+    });
   };
 
+  // Manejar el envío del formulario
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+    e.preventDefault();
+
+    if (!isFormValid()) {
+      toast.error("Por favor, completa todos los campos correctamente.");
+      return;
+    }
+
     try {
       await emailjs.send(
         "service_0p779pc", // Reemplaza con tu Service ID
@@ -66,13 +91,25 @@ const FormComponent = () => {
         {
           name: formData.name,
           email: formData.email,
-          tel: formData.tel,
+          tel: `${formData.countryCode}${formData.tel}`,
           message: formData.message,
         },
         "Genp-_Rzip-Rps60D" // Reemplaza con tu Public Key
       );
       toast.success("¡Tu mensaje se ha enviado con éxito!");
-      setFormData({ name: "", email: "", tel: "", message: "" }); // Limpiar el formulario
+      setFormData({
+        name: "",
+        email: "",
+        tel: "",
+        message: "",
+        countryCode: "+52",
+      });
+      setTouched({
+        name: false,
+        email: false,
+        tel: false,
+        message: false,
+      });
     } catch (err) {
       if (err instanceof EmailJSResponseStatus) {
         toast.error(`EMAILJS FAILED: ${err.text}`);
@@ -82,6 +119,36 @@ const FormComponent = () => {
     }
   };
 
+  // Función para determinar si un campo es inválido
+  const isFieldInvalid = (fieldName) => {
+    switch (fieldName) {
+      case "name":
+        return touched.name && formData.name.trim() === "";
+      case "email":
+        return touched.email && !validateEmail(formData.email);
+      case "tel":
+        return touched.tel && !/^\d{10}$/.test(formData.tel);
+      case "message":
+        return touched.message && formData.message.length < 10;
+      default:
+        return false;
+    }
+  };
+
+  // Personalizar las opciones del dropdown
+  const formatOptionLabel = ({ value, label, iso }) => (
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <ReactCountryFlag
+        countryCode={iso}
+        svg
+        style={{ width: "1.5em", height: "1.5em", marginRight: "8px" }}
+      />
+      <span>
+        {label} ({value})
+      </span>
+    </div>
+  );
+
   return (
     <div className="p-10 flex items-center justify-center form-container">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
@@ -90,7 +157,8 @@ const FormComponent = () => {
             Contacto
           </h2>
         </div>
-        <form onSubmit={isEmailValid ? handleSubmit : null}>
+        <form onSubmit={handleSubmit}>
+          {/* Campo Nombre */}
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -103,13 +171,22 @@ const FormComponent = () => {
               id="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onBlur={() => setTouched({ ...touched, name: true })}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
+                isFieldInvalid("name")
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-gray-300 focus:ring-blue-500"
+              }`}
               placeholder="Tu nombre"
               required
-              maxLength={20}
+              maxLength={30}
             />
+            {isFieldInvalid("name") && (
+              <small className="text-red-600">El nombre es requerido.</small>
+            )}
           </div>
 
+          {/* Campo Correo Electrónico */}
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -121,18 +198,22 @@ const FormComponent = () => {
               type="email"
               id="email"
               value={formData.email}
-              onChange={handleEmailChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={handleChange}
+              onBlur={() => setTouched({ ...touched, email: true })}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
+                isFieldInvalid("email")
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-gray-300 focus:ring-blue-500"
+              }`}
               placeholder="Tu correo electrónico"
               required
             />
-            {isEmailValid ? (
-              <></>
-            ) : (
-              <small className="text-red-600">Ingrese un email válido</small>
+            {isFieldInvalid("email") && (
+              <small className="text-red-600">Ingrese un email válido.</small>
             )}
           </div>
 
+          {/* Campo Teléfono */}
           <div className="mb-4">
             <label
               htmlFor="tel"
@@ -140,19 +221,50 @@ const FormComponent = () => {
             >
               Teléfono
             </label>
-            <input
-              type="tel"
-              id="tel"
-              value={formData.tel}
-              onChange={handlePhoneChange}
-              pattern="[0-9]*"
-              maxLength={10}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Tu número de teléfono"
-              required
-            />
+            <div className="flex">
+              <Select
+                options={countries}
+                value={countries.find((c) => c.value === formData.countryCode)}
+                onChange={handleCountryCodeChange}
+                formatOptionLabel={formatOptionLabel}
+                className="w-2/4"
+                styles={{
+                  control: (base) => ({
+                    ...base,
+                    border: "1px solid #d1d5db",
+                    borderRadius: "0.375rem 0 0 0.375rem",
+                    boxShadow: "none",
+                    "&:hover": {
+                      borderColor: "#d1d5db",
+                    },
+                  }),
+                }}
+              />
+              <input
+                type="tel"
+                id="tel"
+                value={formData.tel}
+                onChange={handleChange}
+                onBlur={() => setTouched({ ...touched, tel: true })}
+                className={`w-3/5 px-3 py-2 border rounded-r-md shadow-sm focus:outline-none focus:ring-2 ${
+                  isFieldInvalid("tel")
+                    ? "border-red-500 focus:ring-red-500"
+                    : "border-gray-300 focus:ring-blue-500"
+                }`}
+                placeholder="Número de teléfono"
+                required
+                maxLength={10}
+                pattern="\d{10}"
+              />
+            </div>
+            {isFieldInvalid("tel") && (
+              <small className="text-red-600">
+                El teléfono debe tener 10 dígitos.
+              </small>
+            )}
           </div>
 
+          {/* Campo Mensaje */}
           <div className="mb-4">
             <label
               htmlFor="message"
@@ -165,20 +277,29 @@ const FormComponent = () => {
               rows="4"
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onBlur={() => setTouched({ ...touched, message: true })}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 ${
+                isFieldInvalid("message")
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-gray-300 focus:ring-blue-500"
+              }`}
               placeholder="Escribe tu mensaje aquí..."
               required
+              minLength={10}
+              maxLength={250}
             ></textarea>
+            {isFieldInvalid("message") && (
+              <small className="text-red-600">
+                El mensaje debe tener al menos 10 caracteres.
+              </small>
+            )}
           </div>
 
+          {/* Botón de Enviar */}
           <button
             type="submit"
-            className={
-              isEmailValid
-                ? "custom-submit w-full bg-gray-950 text-white font-semibold py-2 px-4 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-                : "custom-disabled w-full  font-semibold py-2 px-4 rounded-md shadow-md focus:outline-none"
-            }
-            disabled={!isEmailValid && emailTouched}
+            className="custom-submit w-full bg-gray-950 text-white font-semibold py-2 px-4 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={!isFormValid()}
           >
             Enviar
           </button>
