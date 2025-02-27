@@ -43,7 +43,7 @@ const ImageSlider = () => {
       }}
     >
       <div className="text-center mb-6 font-extrabold text-2xl">
-        <h1>Manejamos todas las marcas</h1>
+        <h1>Cerrrajero 24hrs a domicilio manejando todas las marcas</h1>
       </div>
       <Slider {...settings}>
         {images.map((image, index) => (

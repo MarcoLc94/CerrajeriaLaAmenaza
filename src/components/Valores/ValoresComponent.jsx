@@ -35,7 +35,8 @@ const ValoresComponent = () => {
       <ImageSlider />
       <section className="section-custom">
         <h1 className="custom-xd text-white text-justify p-4 pt-10 font-black">
-          Servicios de apertura, diseño y programación de llaves para vehiculos.
+          Cerrajero 24hrs con Servicios de apertura, diseño y programación de
+          llaves para vehiculos.
         </h1>
         <div className="h-[30vh] p-5">
           {/* <div>
