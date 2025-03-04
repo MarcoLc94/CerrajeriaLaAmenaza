@@ -29,7 +29,7 @@ const FooterComponent = () => {
                 rel="noopener noreferrer"
                 className="icon-social text-gray-400 hover:text-white ml-4"
               >
-                <img src="/facebook-square.webp" alt="" />
+                <img src="/facebook-square.webp" alt="fb-icon" />
               </a>
               <a
                 href="#"
@@ -37,7 +37,7 @@ const FooterComponent = () => {
                 rel="noopener noreferrer"
                 className="icon-social text-gray-400 hover:text-white"
               >
-                <img src="/instagram-alt-logo-60.webp" alt="" />
+                <img src="/instagram-alt-logo-60.webp" alt="ig-icon" />
               </a>
             </div>
           </div>

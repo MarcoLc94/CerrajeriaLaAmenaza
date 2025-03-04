@@ -57,7 +57,7 @@ const ReservationView = ({ onCatalog, setOnCatalog }) => {
               <div>
                 <img
                   src="/car-mechanic-solid-60 (1).webp"
-                  alt=""
+                  alt="main logo"
                   style={{ width: "30px" }}
                 />
               </div>

@@ -61,7 +61,7 @@ const NavBar = ({ onCatalog, setOnCatalog }) => {
             <div>
               <img
                 src="/car-mechanic-solid-60 (1).webp"
-                alt=""
+                alt="icono-principal"
                 style={{ width: "30px" }}
               />
             </div>

@@ -97,7 +97,7 @@ const CatalogView = ({ onCatalog, setOnCatalog }) => {
               <div>
                 <img
                   src="/car-mechanic-solid-60 (1).webp"
-                  alt=""
+                  alt="main_logo"
                   style={{ width: "30px" }}
                 />
               </div>
