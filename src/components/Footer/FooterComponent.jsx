@@ -29,7 +29,7 @@ const FooterComponent = () => {
                 rel="noopener noreferrer"
                 className="icon-social text-gray-400 hover:text-white ml-4"
               >
-                <img src="/facebook-square-logo-60.webp" alt="" />
+                <img src="/facebook-square.webp" alt="" />
               </a>
               <a
                 href="#"
