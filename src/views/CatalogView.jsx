@@ -46,38 +46,38 @@ const CatalogView = ({ onCatalog, setOnCatalog }) => {
       {
         name: "Llave de Puerta",
         description: "Llave estándar para abrir puertas de automóviles.",
-        image: "/convencional-key.jpg",
+        image: "/convencional-key.webp",
       },
       {
         name: "Llave de Encendido",
         description:
           "Llave metálica utilizada para arrancar vehículos más antiguos.",
-        image: "/encendido-key.jpg",
+        image: "/encendido-key.webp",
       },
     ],
     "Llaves Electrónicas": [
       {
         name: "Llave Transponder",
         description: "Llave con chip que proporciona mayor seguridad.",
-        image: "/transponder-key.jpg",
+        image: "/transponder-key.webp",
       },
       {
         name: "Llave de Mando a Distancia",
         description: "Permite abrir y cerrar el coche de forma remota.",
-        image: "/remote-key.jpg",
+        image: "/remote-key.webp",
       },
     ],
     "Llaves Especializadas": [
       {
         name: "Llave Valet",
         description: "Llave limitada para valet parking o servicios similares.",
-        image: "/valet-key.jpg",
+        image: "/valet-key.webp",
       },
       {
         name: "Llave Inteligente",
         description:
           "Llave con tecnología de proximidad para abrir y arrancar el coche.",
-        image: "/smart-key.jpg",
+        image: "/smart-key.webp",
       },
     ],
   };
@@ -96,7 +96,7 @@ const CatalogView = ({ onCatalog, setOnCatalog }) => {
             <div className="flex gap-2">
               <div>
                 <img
-                  src="/car-mechanic-solid-60 (1).png"
+                  src="/car-mechanic-solid-60 (1).webp"
                   alt=""
                   style={{ width: "30px" }}
                 />
@@ -118,12 +118,12 @@ const CatalogView = ({ onCatalog, setOnCatalog }) => {
                 <span className="sr-only">Open main menu</span>
                 <img
                   className={`icon-transition ${icon ? "visible" : ""}`}
-                  src="/menu-regular-60.png"
+                  src="/menu-regular-60.webp"
                   alt="Menu Icon"
                 />
                 <img
                   className={`icon-transition ${!icon ? "visible" : ""}`}
-                  src="/key-icon.png"
+                  src="/key-icon.webp"
                   alt="Key Icon"
                 />
               </button>

@@ -5,21 +5,20 @@ const SliderComponent = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slides = [
-    "/foto1.jpeg",
-    "/foto2.jpeg",
-    "/foto3.jpeg",
-    "/foto4.jpeg",
-    "/foto5.jpeg",
-    "/foto6.jpeg",
-    "/foto7.jpeg",
-    "/foto8.jpeg",
+    "/foto1.webp",
+    "/foto2.webp",
+    "/foto3.webp",
+    "/foto4.webp",
+    "/foto5.webp",
+    "/foto6.webp",
+    "/foto7.webp",
+    "/foto8.webp",
   ];
-  
-  
+
   useEffect(() => {
     const interval = setInterval(handleNext, 3000); // Cambia la imagen cada 3 segundos
     return () => clearInterval(interval); // Limpiar el intervalo cuando el componente se desmonte
-  }, []); // El array vacío asegura que este efecto solo se ejecute una vez cuando el componente se monta
+  }); // El array vacío asegura que este efecto solo se ejecute una vez cuando el componente se monta
 
   const handleNext = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
@@ -36,7 +35,9 @@ const SliderComponent = () => {
       data-carousel="slide"
     >
       <div className=" absolute inset-0 z-10 flex items-center justify-center align-middle text-white text-2xl font-bold">
-        <h2 className="main-title text-center">Los mejores en auto cerrajeria.</h2>
+        <h2 className="main-title text-center">
+          Los mejores en auto cerrajeria.
+        </h2>
       </div>
       {/* Carousel wrapper */}
       <div className="carrousel relative h-[60vh] overflow-hidden rounded-lg md:h-96">

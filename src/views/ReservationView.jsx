@@ -56,7 +56,7 @@ const ReservationView = ({ onCatalog, setOnCatalog }) => {
             <div className="flex gap-2">
               <div>
                 <img
-                  src="/car-mechanic-solid-60 (1).png"
+                  src="/car-mechanic-solid-60 (1).webp"
                   alt=""
                   style={{ width: "30px" }}
                 />
@@ -78,12 +78,12 @@ const ReservationView = ({ onCatalog, setOnCatalog }) => {
                 <span className="sr-only">Open main menu</span>
                 <img
                   className={`icon-transition ${icon ? "visible" : ""}`}
-                  src="/menu-regular-60.png"
+                  src="/menu-regular-60.webp"
                   alt="Menu Icon"
                 />
                 <img
                   className={`icon-transition ${!icon ? "visible" : ""}`}
-                  src="/key-icon.png"
+                  src="/key-icon.webp"
                   alt="Key Icon"
                 />
               </button>

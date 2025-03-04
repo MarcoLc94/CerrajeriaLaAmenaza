@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 .cover {
-  background: url("/wallpaper-art.png"),
+  background: url("/wallpaper-art.webp"),
     linear-gradient(to bottom, #001969, #000);
   background-size: cover;
   width: 100%;

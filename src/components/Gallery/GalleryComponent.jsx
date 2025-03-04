@@ -3,8 +3,8 @@ import "./GalleryComponent.css";
 
 const GalleryComponent = () => {
   const images = [
-    ["/foto8.jpeg", "/foto9.jpeg", "/foto10.jpeg"],
-    ["/foto11.jpeg", "/foto12.jpeg", "/foto13.jpeg"],
+    ["/foto8.webp", "/foto9.webp", "/foto10.webp"],
+    ["/foto11.webp", "/foto12.webp", "/foto13.webp"],
   ];
 
   // Estado para la imagen seleccionada

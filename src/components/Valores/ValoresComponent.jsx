@@ -6,25 +6,25 @@ const ValoresComponent = () => {
   const valores = [
     {
       title: "Seguridad",
-      img: "/lock-open-alt-regular-36.png",
+      img: "/lock-open-alt-regular-36.webp",
       description:
         "Garantizamos la máxima seguridad en cada duplicado y programación de llaves, utilizando tecnología avanzada para proteger tu vehículo.",
     },
     {
       title: "Rapidez",
-      img: "/run-regular-36.png",
+      img: "/run-regular-36.webp",
       description:
         "Ofrecemos servicios rápidos y eficientes para que nunca pierdas tiempo valioso. Solucionamos tus necesidades en el menor tiempo posible.",
     },
     {
       title: "Tecnologia",
-      img: "/key-solid-36.png",
+      img: "/key-solid-36.webp",
       description:
         "Trabajamos con equipos de última generación que nos permiten programar llaves y realizar duplicados con precisión y calidad.",
     },
     {
       title: "Atencion Personalizada",
-      img: "/user-check-regular-36.png",
+      img: "/user-check-regular-36.webp",
       description:
         "Nos enfocamos en brindarte un servicio personalizado, adaptándonos a tus necesidades y garantizando tu satisfacción total.",
     },

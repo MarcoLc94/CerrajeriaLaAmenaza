@@ -34,10 +34,10 @@ const CotizacionComponent = () => {
           <h1>Bienvenidas todas las tarjetas</h1>
         </div>
         <div className="photoinside">
-          <img src="/allcards.png" alt="" className="none" />
+          <img src="/allcards.webp" alt="" className="none" />
           <img src="/cashcard2.gif" alt="" />
           <img src="/outputcard2.gif" alt="" />
-          <img src="/allbrands.jpg" alt="" className="none" />
+          <img src="/allbrands.webp" alt="" className="none" />
         </div>
       </div>
     </div>

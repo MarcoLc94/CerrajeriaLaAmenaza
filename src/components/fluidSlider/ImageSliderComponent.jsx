@@ -4,19 +4,19 @@ import "slick-carousel/slick/slick-theme.css";
 
 const ImageSlider = () => {
   const images = [
-    "/image1.png",
-    "/image2.png",
-    "/image3.png",
-    "/image4.png",
-    "/image5.png",
-    "/image6.png",
-    "/image7.png",
-    "/image8.png",
-    "/image9.png",
-    "/image10.png",
-    "/image11.png",
-    "/image12.png",
-    "/image13.png",
+    "/image1.webp",
+    "/image2.webp",
+    "/image3.webp",
+    "/image4.webp",
+    "/image5.webp",
+    "/image6.webp",
+    "/image7.webp",
+    "/image8.webp",
+    "/image9.webp",
+    "/image10.webp",
+    "/image11.webp",
+    "/image12.webp",
+    "/image13.webp",
   ];
 
   const settings = {

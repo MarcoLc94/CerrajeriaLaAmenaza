@@ -1,30 +1,26 @@
 .cover {
-    display: flex;
-    flex-direction: column; /* Layout vertical */
-    background:
-        url('/wallpaper-art.png'),
-        linear-gradient(to bottom, #00008B, #000);
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    max-height: auto;
+  display: flex;
+  flex-direction: column; /* Layout vertical */
+  background: url("/wallpaper-art.webp"),
+    linear-gradient(to bottom, #00008b, #000);
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  max-height: auto;
 }
-
-
 
 /* Animación fade (desvanecimiento) */
 .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in-out; /* Duración y tipo de transición */
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 500ms ease-in-out;
-  }
-  
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out; /* Duración y tipo de transición */
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
