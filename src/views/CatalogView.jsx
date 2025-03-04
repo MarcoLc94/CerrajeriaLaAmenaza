@@ -177,7 +177,7 @@ const CatalogView = ({ onCatalog, setOnCatalog }) => {
 };
 
 CatalogView.propTypes = {
-  onCatalog: PropTypes.func.isRequired,
+  onCatalog: PropTypes.bool.isRequired,
   setOnCatalog: PropTypes.func.isRequired,
 };
 

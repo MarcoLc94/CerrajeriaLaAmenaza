@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.publicity-slider {
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4vh;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.publicity-slider.white {
+  background-color: white;
+  color: black;
+}
+
+.publicity-slider.black {
+  background-color: black;
+  color: white;
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-track {
+  display: flex;
+  gap: 100px; /* Espacio entre promociones */
+  width: max-content;
+  animation: moveText 25s linear infinite; /* Mueve todo el contenido */
+}
+
+.promo-text {
+  font-size: 2rem;
+  font-family: "Bebas Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Animación corregida */
+@keyframes moveText {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

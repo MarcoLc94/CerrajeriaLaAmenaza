@@ -39,11 +39,11 @@ function CustomItem({ title, tag, toggleSidebar, onCatalog, isActive }) {
 }
 
 CustomItem.propTypes = {
-  title: PropTypes.func.isRequired,
-  tag: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
-  onCatalog: PropTypes.func.isRequired,
-  isActive: PropTypes.func.isRequired,
+  onCatalog: PropTypes.bool,
+  isActive: PropTypes.bool,
 };
 
 export default CustomItem;
